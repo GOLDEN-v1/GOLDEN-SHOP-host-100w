@@ -1,6 +1,6 @@
 //server bot config
 var config = {};
-config.token = "NzE1MjI2ODcwMzE2MTM4NTI2.XwGoEg.n0tE3zyH4CU6C6bhiw2sKNUiGvI"; //โทเคนบอท
+config.token = "token"; //โทเคนบอท
 config.prefix = `g!`;
 config.version = "V1";
 
