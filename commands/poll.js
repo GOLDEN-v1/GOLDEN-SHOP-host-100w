@@ -4,13 +4,18 @@ const disagree = '👎';
 let color = `black`;
 
 module.exports.run = async (bot, message, args) => {
-if (!args.join(' ')) return message.reply('**โปรดระบุคำถาม**');
+if (!args.join(' ')) return message.reply(
+new Discord.RichEmbed()
+.setTitle(`ผิดพลาด`)
+.setDescription(`กรุณาระบุคำถาม`)
+.setColor(`RED`));
 const sayMessage = args.join(" ");
 let embed = new Discord.RichEmbed()
 .setTitle("📝 : **โหวต**")
 .setDescription(`\`🏷️:คำถามคือ\` **${sayMessage}**`)
 .setFooter(`เวลา : 2นาที`)
-.setColor(`color`);
+.setColor(`color`)
+.setTimestamp();
         let msg = await message.channel.send(embed);
         await msg.react(agree);
         await msg.react(disagree);
@@ -24,6 +29,8 @@ new Discord.RichEmbed()
 ${agree}: ${reactions.get(agree).count - 1}
 
 ${disagree}: ${reactions.get(disagree).count - 1}`)
+.setFooter(`${config.prefix}help • ดูเมนูคำสั่ง`)
+.setTimestamp()
 );
     },
 exports.conf = { aliases: [] };
